@@ -1,0 +1,15 @@
+<p>This is the dashboard.</p>
+
+<a href="/">Return</a>
+
+{{#if approved}}
+  <p>Congratulations, you are now a member! Check out your items:</p>
+
+  <div class="items-container">
+    {{#each items}}
+      {{> item}}
+    {{/each}}
+  </div>
+{{else}}
+  <p>You are not yet a member. Please confirm your account.</p>
+{{/if}}

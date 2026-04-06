@@ -1,0 +1,8 @@
+{{#with user}}
+  <h1>Welcome to the Home Page, {{ name }} {{ surname }}</h1>
+  <p>You are currently {{ age }} years old.</p>
+{{/with}}
+
+{{#if authStatus}}
+  <p>You are currently logged in, you can access the <a href="/dashboard">members area</a></p>
+{{/if}}
