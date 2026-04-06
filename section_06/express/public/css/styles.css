@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(0deg, #fff 0%, #709cc5 100%) fixed;
+} 
+
+body * {
+  margin: 5px;
+}

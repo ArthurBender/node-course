@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+}
+
+.navbar {
+  background-color: lightcyan;
+  margin: 0;
+  padding: 20px 10px;
+  text-align: center;
+  border-bottom: 1px solid darkcyan;
+  color: darkcyan;
+  font-size: 48px;
+}
+
+.content {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.content img {
+  height: 70vh;
+  width: auto;
+  min-height: 200px;
+}
+
+.button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  /* color: #fff; */
+  border: 1px solid grey;
+}
+
+.button.success {
+  background-color: lightgreen;
+  border-color: darkgreen;
+  color: darkgreen;
+}
+.button.success:hover {
+  background-color: darkgreen;
+  color: lightgreen;
+}
+
+.button.danger {
+  background-color: lightcoral;
+  border-color: darkred;
+  color: darkred;
+}
+.button.danger:hover {
+  background-color: darkred;
+  color: lightcoral;
+}
+
+.button.warning {
+  background-color: lightyellow;
+  border-color: darkgoldenrod;
+  color: darkgoldenrod;
+}
+.button.warning:hover {
+  background-color: darkgoldenrod;
+  color: lightyellow;
+}
