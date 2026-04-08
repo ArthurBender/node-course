@@ -1,0 +1,13 @@
+<div class="book-page">
+  <div class="container">
+    <h1>{{book.title}}</h1>
+    <p>This book has {{book.pages}} pages.</p>
+
+    <div class="actions">
+      <a href="/books/edit/{{book.id}}" class="button">Edit</a>
+      <a href="/books/delete/{{book.id}}" class="button">Delete</a>
+    </div>
+  </div>
+</div>
+
+<a href="/books" class="button">List of Books</a>
