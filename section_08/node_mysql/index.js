@@ -14,7 +14,7 @@ app.get('/books/delete/:id', (req, res) => {
   const sql = "DELETE FROM books WHERE ?? = ?";
   const data = ['id', req.params.id];
 
-  pool.query(sql, (err, data) => {
+  pool.query(sql, data, (err, data) => {
     if (err) throw err;
     res.redirect('/books');
   })
