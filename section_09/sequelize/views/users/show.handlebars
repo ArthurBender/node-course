@@ -1,0 +1,46 @@
+<div class="user-container">
+  <h2 class="page-title">#{{user.id}} - {{user.name}}</h2>
+  <p>Occupation: {{user.occupation}}</p>
+  <p>Newsletter: {{#if user.enabledNewsletter}}Enabled{{else}}Disabled{{/if}}</p>
+
+  <div class="actions">
+    <a class="nav-link" href="/users/edit/{{user.id}}">Edit</a>
+    <a class="nav-link" href="/users/delete/{{user.id}}">Delete</a>
+    <a class="nav-link" href="/users">Back</a>
+  </div>
+
+  <h3 class="page-title">Addresses</h3>
+
+  <form action="/addresses/create" method="POST" id="address_create">
+    <input type="hidden" name="UserId" value="{{user.id}}" />
+  </form>
+
+  <div class="address-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Street</th>
+          <th>Number</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each user.Addresses}}
+          <tr>
+            <td>{{this.street}}</td>
+            <td>{{this.number}}</td>
+            <td>{{this.city}}</td>
+            <td><a href="/addresses/delete/{{this.id}}">Delete</td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td><input type="text" name="street" form="address_create"></td>
+          <td><input type="text" name="number" form="address_create"></td>
+          <td><input type="text" name="city" form="address_create"></td>
+          <td><input type="submit" value="Add" form="address_create"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

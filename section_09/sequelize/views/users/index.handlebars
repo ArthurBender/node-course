@@ -1,0 +1,36 @@
+
+<div class="user-list">
+  <h1 class="page-title">User List</h1>
+
+  {{#if users.length}}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Occupation</th>
+          <th>Newsletter</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.occupation}}</td>
+            <td>{{#if this.enabledNewsletter}}Yes{{else}}No{{/if}}</td>
+            <td>
+              <a href="/users/{{this.id}}">View</a>
+              <a href="/users/edit/{{this.id}}">Edit</a>
+              <a href="/users/delete/{{this.id}}">Delete</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p class="text-center">No users found.</p>
+  {{/if}}
+  
+
+  <a href="/users/new" class="nav-link">New User</a>
+</div>

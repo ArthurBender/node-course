@@ -1,0 +1,119 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.navbar {
+  text-align: center;
+  background-color: lightskyblue;
+  padding: 20px;
+  border-bottom: 2px solid darkblue;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.form-container, .user-container, .user-list {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+  text-align: center;
+  margin: 0 0 20px 0;
+  text-decoration: underline;
+}
+
+.form-container .form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.form-container .form-control.checkbox {
+  flex-direction: row;
+  align-items: left;
+  user-select: none;
+}
+
+.form-container .form-control input {
+  padding: 5px;
+}
+
+.form-container .form-control label {
+  font-weight: bold;
+}
+
+.form-container button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 auto;
+  display: block;
+}
+
+.user-list table, .address-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.user-list td, .user-list th {
+  border: 1px solid black;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.nav-link {
+  text-align: center;
+  margin: 20px 0;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.address-list {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.address-list td, .address-list th {
+  padding: 5px;
+  text-align: center;
+}
+
+.address-list input {
+  width: 100%;
+  max-width: 100%;
+  padding: 5px;
+}
