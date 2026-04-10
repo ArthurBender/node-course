@@ -1,0 +1,9 @@
+<div class="panel">
+  <h2 class="panel-title">Edit Task</h2>
+  <form method="POST" action="/tasks/update/{{task.id}}">
+    {{> tasks/form task=task}}
+  </form>
+  <form method="POST" action="/tasks/update-status/{{task.id}}" id="task-status-form">
+    <input type="hidden" name="done" id="task-status-done" value="{{#if task.done}}true{{else}}false{{/if}}">
+  </form>
+</div>

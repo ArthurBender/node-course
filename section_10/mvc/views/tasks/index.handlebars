@@ -1,0 +1,37 @@
+<div class="panel">
+  <h2 class="panel-title">Task List</h2>
+
+  <div class="task-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Done</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasks}}
+          <tr>
+            <td class="{{#if this.done}}strikeout{{/if}}">{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>
+              <form method="POST" action="/tasks/update-status/{{this.id}}">
+                <input name="done" type="checkbox" {{#if this.done}}checked{{/if}} onchange="this.form.submit()" />
+              </form>
+            </td>
+            <td>
+              <a href="/tasks/edit/{{this.id}}">Edit</a>
+              <a href="/tasks/delete/{{this.id}}">Delete</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions">
+    <a href="/tasks/new" class="button">New Task</a>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.navbar {
+  padding: 15px 20px;
+  background-color: rgb(213, 164, 236);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid purple;
+}
+
+.navbar .nav-brand {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navbar .nav-links {
+  flex-grow: 1;
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  justify-content: flex-end;
+  font-size: 18px;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: border-color 100ms ease-in-out;
+}
+
+.navbar a:hover {
+  border: 1px solid black;
+}
+
+.panel {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.panel .panel-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-control.checkbox {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.form-control input, .form-control textarea {
+  padding: 5px;
+}
+
+.form-control label {
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid grey;
+  color: grey;
+  font-size: 16px;
+  background-color: white;
+}
+
+.button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.button.success {
+  color: green;
+  border-color: green;
+}
+.button.success:hover {
+  background-color: green;
+  color: white;
+}
+
+.task-list {
+  margin-bottom: 20px;
+}
+
+.task-list table {
+  width: 100%;
+  text-align: center;
+}
+
+.task-list table td, .task-list table th {
+  padding: 5px;
+}
+
+.strikeout {
+  text-decoration: line-through;
+  color: grey;
+}
