@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <div class="title-container">
+    <h2>Dashboard</h2>
+    <a href="/thoughts/new" class="button">New Thought</a>
+  </div>
+
+  <h3>Your thoughts:</h3>
+  <ul>
+    {{#if emptyThoughts}}
+      <p>You don't have any thoughts yet. <a href="/thoughts/new">Create one</a>.</p>
+    {{else}}
+      {{#each thoughts}}
+        <li>
+          <span class="label">{{this.title}}</span>
+          <span class="actions">
+            <a href="/thoughts/edit/{{this.id}}" class="button">Edit</a>
+            <form action="/thoughts/delete/{{this.id}}" method="POST">
+              <input type="submit" value="Delete" class="button"/>
+            </form>
+          </span>
+        </li>
+      {{/each}}
+    {{/if}}
+  </ul>
+</div>
