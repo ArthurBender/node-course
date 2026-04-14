@@ -1,0 +1,15 @@
+<h1 class="page-title">Products List</h1>
+
+<div class="products-list">
+  {{#each products}}
+    <a href="/products/details/{{this._id}}" class="product">
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h3>{{this.name}}</h3>
+      <p>${{this.price}}</p>
+    </a>
+  {{/each}}
+</div>
+
+<div class="actions">
+  <a href="/products/new" class="button">New Product</a>
+</div>

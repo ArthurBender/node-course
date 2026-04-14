@@ -1,0 +1,21 @@
+<div class="form-control">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" placeholder="Product's name" required value="{{product.name}}">
+</div>
+<div class="form-control">
+  <label for="price">Price</label>
+  <input type="number" name="price" id="price" placeholder="Product's price" required value="{{product.price}}">
+</div>
+<div class="form-control">
+  <label for="description">Description</label>
+  <textarea name="description" id="description" rows="3" placeholder="Product's description">{{product.description}}</textarea>
+</div>
+<div class="form-control">
+  <label for="image">Image</label>
+  <input type="text" name="image" id="image" placeholder="Product's image url" value="{{product.image}}">
+</div>
+
+<div class="actions">
+  <a href="/products" class="button">Cancel</a>
+  <input type="submit" value="Save" class="button success">
+</div>
