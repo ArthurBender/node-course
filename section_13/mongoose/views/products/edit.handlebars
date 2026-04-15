@@ -1,0 +1,5 @@
+<h1 class="page-title">Update Product: {{product.name}}</h1>
+
+<form action="/products/update/{{product._id}}" method="POST">
+  {{> products/form product=product}}
+</form>
