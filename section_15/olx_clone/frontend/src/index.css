@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+:root {
+  --dark: #1a1d23;
+  --primary: #f28000;
+  --secondary: #6e06d8;
+  --border: #cfd4dd;
+  --muted: #6b7280;
+}
+
+@theme {
+  --color-dark: var(--dark);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout */
+#root {
+  @apply flex flex-col min-h-screen;
+}
+
+#main {
+  @apply flex-1 container mx-auto py-5;
+}
+
+/* Navbar */
+#navbar {
+  @apply border-b border-border;
+}
+
+#navbar .navbar-content {
+  @apply flex items-center justify-between container mx-auto py-3;
+}
+
+#navbar .navbar-nav {
+  @apply flex items-center gap-5;
+}
+
+#navbar .navbar-nav.middle .nav-link {
+  @apply border-b-2 border-transparent font-semibold;
+}
+
+#navbar .navbar-nav.middle .nav-link:hover,
+#navbar .navbar-nav.middle .nav-link:hover svg {
+  @apply text-secondary;
+}
+
+#navbar .navbar-nav.middle .nav-link:hover {
+  @apply border-b-2 border-secondary;
+}
+
+#navbar .nav-link {
+  @apply flex items-center gap-1;
+}
+#navbar .nav-link svg {
+  @apply text-lg mb-0.5;
+}
+
+/* Footer */
+footer {
+  @apply border-t border-border;
+}
+
+footer .footer-content {
+  @apply container mx-auto py-6 text-center;
+}
+
+/* Flash Message */
+.flash-message {
+  @apply w-[50%] p-3 border text-center fixed top-4 left-1/2 -translate-x-1/2 rounded-lg bg-white z-10;
+}
+.flash-message button {
+  @apply absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-2xl;
+}
+.flash-message button:hover {
+  @apply transform scale-110 font-extrabold;
+}
+
+.flash-message.success {
+  @apply border-green-700 text-green-700 bg-green-100;
+}
+.flash-message.error {
+  @apply border-red-700 text-red-700 bg-red-100;
+}
+
+/* Buttons */
+.button {
+  @apply border bg-white text-dark border-border px-6 py-3 text-sm min-w-37.5 rounded-[40px] cursor-pointer flex items-center justify-center gap-2 font-medium;
+}
+.button.circular {
+  @apply rounded-full w-fit min-w-fit px-3;
+}
+.button:hover {
+  @apply shadow-[inset_0_0_0_9999px_rgba(0,0,0,0.1)];
+}
+.button:active {
+  @apply transform scale-96;
+}
+
+.button.primary {
+  @apply bg-primary text-white border-primary;
+}
+.button.secondary {
+  @apply bg-secondary text-white border-secondary;
+}
+.button.outlined {
+  @apply text-primary border-primary;
+}
+.button.button-lg {
+  @apply px-6 py-4 text-lg;
+}
+
+/* Links */
+.link {
+  @apply text-secondary cursor-pointer underline;
+}
+.link:hover {
+  @apply font-semibold;
+}
+
+/* Panel */
+.panel {
+  @apply border border-border rounded-lg px-10 py-8;
+}
+.panel.panel-page {
+  @apply max-w-2xl mx-auto my-10;
+}
+.panel.panel-shadowed {
+  @apply shadow-lg;
+}
+
+.panel .panel-logo {
+  @apply mx-auto h-12 w-12;
+}
+
+.panel .panel-title {
+  @apply text-2xl font-semibold text-center border-b border-border pb-4 mb-4;
+}
+
+/* Forms */
+.form-control {
+  @apply flex flex-col gap-0.5 mb-6 relative;
+}
+
+.form-control label {
+  @apply font-semibold mb-1;
+}
+.form-control input,
+.form-control textarea,
+.form-control select {
+  @apply border border-border rounded-lg px-4 py-3 h-14;
+}
+.form-control input:hover,
+.form-control textarea:hover,
+.form-control select:hover {
+  @apply border-2;
+}
+.form-control input:active,
+.form-control input:focus,
+.form-control input:focus-visible,
+.form-control textarea:active,
+.form-control textarea:focus,
+.form-control textarea:focus-visible,
+.form-control select:active,
+.form-control select:focus,
+.form-control select:focus-visible {
+  @apply border-2 border-secondary outline-0;
+}
+.form-control textarea {
+  @apply h-25!;
+}
+.form-control .form-hint {
+  @apply text-sm text-muted;
+}
+
+/* Password input */
+.form-control .password-toggle {
+  @apply absolute right-4 top-12 cursor-pointer text-secondary text-xl;
+}
+
+/* File input */
+.form-control input[type="file"] {
+  @apply h-10 text-sm file:bg-secondary p-0 file:h-full file:px-4 file:py-1 file:text-white file:font-semibold file:mr-2;
+}
+
+.file-preview {
+  @apply h-50 w-50 border border-secondary mx-auto rounded object-cover;
+}
+.file-preview.empty {
+  @apply border-2 border-dashed bg-muted/10;
+}
+.file-preview.item-image {
+  @apply h-30 w-30 m-0;
+}
+
+/* Phone input */
+.form-control .PhoneInput {
+  @apply relative;
+}
+
+.form-control .PhoneInputCountry {
+  @apply absolute left-4 top-1/2 transform -translate-y-1/2;
+}
+
+.form-control .PhoneInputInput {
+  @apply pl-14;
+}
+
+/* Page title */
+.page-title-container {
+  @apply relative;
+}
+
+.page-title {
+  @apply text-4xl font-semibold w-fit my-5 border-l-6 border-primary pl-3;
+}
+
+.page-title-container .button {
+  @apply absolute right-0 top-1/2 transform -translate-y-1/2;
+}
+
+/* My Items */
+.items-list {
+  @apply flex flex-col gap-4;
+}
+.items-list .item-row {
+  @apply flex justify-between items-center gap-5 border border-border rounded-lg p-4;
+}
+.items-list .item-row img {
+  @apply h-24 w-24 rounded-lg object-cover;
+}
+.items-list .item-row .item-row-content,
+.items-list .item-row .item-row-actions {
+  @apply flex flex-col gap-2 items-center;
+}
+.items-list .item-row .item-row-content {
+  @apply w-1/5;
+}
+.items-list .item-row .item-title {
+  @apply text-lg font-bold underline;
+}
+
+/* Dashboard */
+.items-grid {
+  @apply grid gap-8 my-20 grid-cols-[repeat(auto-fill,250px)] justify-center;
+}
+.items-grid .item-frame {
+  @apply flex flex-col gap-2 items-center;
+}
+.items-grid .item-frame img {
+  @apply w-full h-auto max-h-60 object-cover rounded-lg;
+}
+.items-grid .item-frame .item-title {
+  @apply text-lg font-semibold;
+}
+.items-grid .item-frame .item-unavailable {
+  @apply text-lg font-semibold pt-2 text-muted;
+}
+
+/* Item Details */
+.item-details-container {
+  @apply flex justify-between gap-10;
+}
+
+.item-details-container .item-content {
+  @apply flex-1 flex flex-col gap-10;
+}
+
+.item-details-container .images-container {
+  @apply w-full h-150 flex gap-2;
+}
+
+.item-details-container .images-container .main-image {
+  @apply flex-1 min-w-0;
+}
+
+.item-details-container .images-container .secondary-images {
+  @apply w-100 shrink-0 grid grid-cols-2 gap-2;
+}
+
+.item-details-container .images-container img {
+  @apply w-full h-full object-cover transition-transform duration-150 ease-in-out;
+}
+.item-details-container .images-container img:hover {
+  @apply transform scale-115;
+}
+.image-holder {
+  @apply w-full h-full overflow-hidden;
+}
+
+.item-details-container .item-price-panel {
+  @apply w-75 h-fit flex flex-col gap-2 items-center;
+}
+
+.item-details-container .item-price-panel .item-price {
+  @apply text-2xl font-semibold;
+}
+
+.item-details-container .item-price-panel hr {
+  @apply w-full my-5 border border-muted;
+}
+
+.item-details-container .item-info-container {
+  @apply flex flex-col gap-5 mb-10;
+}
+.item-details-container .item-title {
+  @apply text-3xl font-semibold;
+}
+
+.item-details-container .item-details {
+  @apply flex gap-20;
+}

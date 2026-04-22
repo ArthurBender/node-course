@@ -1,0 +1,206 @@
+@api_url = http://localhost:5000
+
+# john+1@doe.com
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJpZCI6IjY5ZTBlNGJiM2NkNmM2YzljODQyZWI1ZCIsImlhdCI6MTc3Njg2NzMxNSwiZXhwIjoxNzc2OTUzNzE1fQ.OgNby4tfTCzAnXgjVM1-bqviM-Angoem4okiKG3dwlg
+
+# john+2@doe.com
+# @authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJpZCI6IjY5ZTBlNGJiM2NkNmM2YzljODQyZWI1ZCIsImlhdCI6MTc3NjM2NTIyOSwiZXhwIjoxNzc2NDUxNjI5fQ.D4elRbOo6s2rNdO3SiCmcBYV3e9UvtfpdGzMl7FpDp8
+
+# --- USERS / AUTH ----------------------------------------------------------------------
+
+# Health Check
+GET {{ api_url }}/ HTTP/1.1
+
+###
+
+# Create User
+POST {{ api_url }}/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john+4@doe.com",
+  "phone": "1234567894",
+  "password": "password",
+  "confirmPassword": "password"
+}
+
+###
+
+# Log in
+POST {{ api_url }}/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "john+2@doe.com",
+  "password": "password"
+}
+
+###
+
+# Get Current User
+GET {{ api_url }}/me HTTP/1.1
+Authorization: {{ authorization }}
+
+###
+
+# Show User
+GET {{ api_url }}/users/69e0e2492c2461f403ac0ff8 HTTP/1.1
+
+###
+
+# Update User
+PATCH {{ api_url }}/users/69e0e2492c2461f403ac0ff8 HTTP/1.1
+Authorization: {{ authorization }}
+Content-Type: multipart/form-data; boundary=----OLXCloneBoundary
+
+------OLXCloneBoundary
+Content-Disposition: form-data; name="name"
+
+John Doe
+------OLXCloneBoundary
+Content-Disposition: form-data; name="email"
+
+john+1@doe.com
+------OLXCloneBoundary
+Content-Disposition: form-data; name="phone"
+
+1234567891
+------OLXCloneBoundary
+Content-Disposition: form-data; name="password"
+
+password
+------OLXCloneBoundary
+Content-Disposition: form-data; name="confirmPassword"
+
+password
+# ------OLXCloneBoundary
+# Content-Disposition: form-data; name="avatar"; filename="sample_avatar.png"
+# Content-Type: image/png
+#
+# < ./sample_avatar.png
+------OLXCloneBoundary--
+
+###
+
+# --- ITEMS -----------------------------------------------------------------------------
+
+# Get Items
+GET {{ api_url }}/items HTTP/1.1
+
+###
+
+# Get Item
+GET {{ api_url }}/items/69e11e4ef18e98ec4d695f2d HTTP/1.1
+
+###
+
+# Get User Items
+GET {{ api_url }}/items/my-items HTTP/1.1
+Authorization: {{ authorization }}
+
+###
+
+# Create Item
+POST {{ api_url }}/items HTTP/1.1
+Authorization: {{ authorization }}
+Content-Type: multipart/form-data; boundary=----OLXCloneItemBoundary
+
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="title"
+
+Sample item
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="description"
+
+Sample item description
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="price"
+
+100
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="category"
+
+electronics
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="condition"
+
+used
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="images"; filename="sample_item_1.png"
+Content-Type: image/png
+
+< ./sample_item.png
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="images"; filename="sample_item_2.png"
+Content-Type: image/png
+
+< ./sample_item.png
+------OLXCloneItemBoundary--
+
+###
+
+# Update Item
+PATCH {{ api_url }}/items/69e12c4155040f43889f4b6f HTTP/1.1
+Authorization: {{ authorization }}
+Content-Type: multipart/form-data; boundary=----OLXCloneItemBoundary
+
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="title"
+
+Sample item
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="description"
+
+Sample item description
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="price"
+
+100
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="category"
+
+electronics
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="condition"
+
+used
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="images"; filename="sample_item_1.png"
+Content-Type: image/png
+
+< ./sample_item.png
+------OLXCloneItemBoundary
+Content-Disposition: form-data; name="images"; filename="sample_item_2.png"
+Content-Type: image/png
+
+< ./sample_item.png
+------OLXCloneItemBoundary--
+
+###
+
+# Delete Item
+DELETE {{ api_url }}/items/69e12c4155040f43889f4b6f HTTP/1.1
+Authorization: {{ authorization }}
+
+###
+
+# --- TRADES ----------------------------------------------------------------------------
+
+# Schedule Trade
+PATCH {{ api_url }}/trades/schedule/69e8ccf5fe27a70db0a30b37 HTTP/1.1
+Authorization: {{ authorization }}
+Content-Type: application/json
+
+###
+
+# Get User Trades
+GET {{ api_url }}/trades/my-trades HTTP/1.1
+Authorization: {{ authorization }}
+
+###
+
+PATCH {{ api_url }}/trades/conclude/69e11e4ef18e98ec4d695f2d HTTP/1.1
+Authorization: {{ authorization }}
+
+###
